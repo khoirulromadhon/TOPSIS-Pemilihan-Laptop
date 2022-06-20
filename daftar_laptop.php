@@ -4,110 +4,133 @@ include('koneksi.php');
 ?>
 
 <?php 
-	if(isset($_POST["tambah_hp"])){
-		$nama      = $_POST["nama"];
-		$harga     = $_POST["harga"];
-		$ram       = $_POST["ram"];
-		$memori    = $_POST["memori"];
-		$processor = $_POST["processor"];
-		$kamera    = $_POST["kamera"];
+	if(isset($_POST["tambah_laptop"])){
+		$brands 	   = $_POST["brands"];
+		$produks    = $_POST["produks"];
+		$hargas	   = $_POST["hargas"];
+		$rams       = $_POST["rams"];
+		$memorys    = $_POST["memorys"];
+		$cpus 	   = $_POST["cpus"];
+		$inchess    = $_POST["inchess"];
 		
-		$harga_angka = $ram_angka = $memori_angka = $processor_angka = $kamera_angka = 0;
+		$harga_angka = $ram_angka = $memory_angka = $cpu_angka = $inches_angka = 0;
 
-		if($harga < 1000000){
+		if($hargas > 10000000){
 			$harga_angka = 5;
 		} 
-		elseif($harga >= 1000000 && $harga <= 3000000){
+		elseif($hargas >= 9000000 && $hargas <= 10000000){
 			$harga_angka = 4;
 		}
-		elseif($harga > 3000000 && $harga <= 4000000){
+		elseif($hargas >=7000000 && $hargas <= 8000000){
 			$harga_angka = 3;
 		}
-		elseif($harga > 4000000 && $harga <= 5000000){
+		elseif($hargas >= 5000000 && $hargas <= 6000000){
 			$harga_angka = 2;
 		}
-		elseif($harga > 5000000){
+		elseif($hargas >= 3000000 && $hargas<=4000000){
 			$harga_angka = 1;
 		}
 
 
-		if($ram < 6){
-			$ram_angka = $ram;
-		}
-		elseif($ram == 6){
+		if($rams > 8){
 			$ram_angka = 5;
 		}
-
-
-		if($memori == 4){
-			$memori_angka = 1;
+		elseif($rams == 8){
+			$ram_angka = 4;
 		}
-		elseif($memori == 8){
-			$memori_angka = 2;
+		elseif($rams == 4){
+			$ram_angka = 3;
 		}
-		elseif($memori == 16){
-			$memori_angka = 3;
+		elseif($rams == 3){
+			$ram_angka = 2; 
 		}
-		elseif($memori == 32){
-			$memori_angka = 4;
-		}
-		elseif($memori == 64){
-			$memori_angka = 5;
+		elseif($rams == 2){
+			$ram_angka = 1;
 		}
 
 
-		if($processor == "Dualcore"){
-			$processor_angka = 1;
+		if($memorys == "500 GB HDD"){
+			$memory_angka = 1;
 		}
-		elseif($processor == "Quadcore"){
-			$processor_angka = 3;
+		elseif($memorys == "32-256 GB Flash Storage"){
+			$memory_angka = 2;
 		}
-		elseif($processor == "Octacore"){
-			$processor_angka = 5;
+		elseif($memorys == "1 TB HDD"){
+			$memory_angka = 3;
+		}
+		elseif($memorys == "128-256 GB SSD"){
+			$memory_angka = 4;
+		}
+		elseif($memorys == "SSD + 1TB HDD"){
+			$memory_angka = 5;
+		}
+
+
+		if($cpus == "AMD e-series"){
+			$cpu_angka = 1;
+		}
+		elseif($cpus == "AMD A-series"){
+			$cpu_angka = 2;
+		}
+		elseif($cpus == "Intel Core i3"){
+			$cpu_angka = 3;
+		}
+		elseif($cpus == "Intel Core i5"){
+			$cpu_angka = 4;
+		}
+		elseif($cpus == ">= Intel Core i7"){
+			$cpu_angka = 5;
 		}
 
 
-		if($kamera == 8){
-			$kamera_angka = 1;
+		if($inchess <= 12){
+			$inches_angka = 1;
 		}
-		elseif($kamera == 13){
-			$kamera_angka = 3;
+		elseif($inchess == 13.3){
+			$inches_angka = 2;
 		}
-		elseif($kamera == 16){
-			$kamera_angka = 5;
+		elseif($inchess == 14){
+			$inches_angka = 3;
+		}
+		elseif($inchess >= 15 && $inchess <= 16){
+			$inches_angka = 4;
+		}
+		elseif($inchess >= 16){
+			$inches_angka = 5;
 		}
 
-		$sql = "INSERT INTO `data_hp` (`id_hp`, `nama_hp`, `harga_hp`, `ram_hp`, `memori_hp`, `processor_hp`, `kamera_hp`, `harga_angka`, `ram_angka`, `memori_angka`, `processor_angka`, `kamera_angka`) 
-				VALUES (NULL, :nama_hp, :harga_hp, :ram_hp, :memori_hp, :processor_hp, :kamera_hp, :harga_angka, :ram_angka, :memori_angka, :processor_angka, :kamera_angka)";
+		$sql = "INSERT INTO `data_laptop` (`id`,`brand` ,`produk`, `harga`, `ram`, `memory`, `cpu`, `inches`, `harga_angka`, `ram_angka`, `memory_angka`, `cpu_angka`, `inches_angka`) 
+				VALUES (NULL, :brand ,:produk, :harga, :ram, :memory, :cpu, :inches, :harga_angka, :ram_angka, :memory_angka, :cpu_angka, :inches_angka)";
 		$stmt = $db->prepare($sql);
-		$stmt->bindValue(':nama_hp', $nama);
-		$stmt->bindValue(':harga_hp', $harga);
-		$stmt->bindValue(':ram_hp', $ram);
-		$stmt->bindValue(':memori_hp', $memori);
-		$stmt->bindValue(':processor_hp', $processor);
-		$stmt->bindValue(':kamera_hp', $kamera);
+		$stmt->bindValue(':brand', $brands);
+		$stmt->bindValue(':produk', $produks);
+		$stmt->bindValue(':harga', $hargas);
+		$stmt->bindValue(':ram', $rams);
+		$stmt->bindValue(':memory', $memorys);
+		$stmt->bindValue(':cpu', $cpus);
+		$stmt->bindValue(':inches', $inchess);
 		$stmt->bindValue(':harga_angka', $harga_angka);
 		$stmt->bindValue(':ram_angka', $ram_angka);
-		$stmt->bindValue(':memori_angka', $memori_angka);
-		$stmt->bindValue(':processor_angka', $processor_angka);
-		$stmt->bindValue(':kamera_angka', $kamera_angka);
+		$stmt->bindValue(':memory_angka', $memory_angka);
+		$stmt->bindValue(':cpu_angka', $cpu_angka);
+		$stmt->bindValue(':inches_angka', $inches_angka);
 		$stmt->execute();
 	}
 
-	if(isset($_POST["hapus_hp"])){
-		$id_hapus_hp = $_POST['id_hapus_hp'];
-		$sql_delete = "DELETE FROM `data_hp` WHERE `id_hp` = :id_hapus_hp";
+	if(isset($_POST["hapus_laptop"])){
+		$id_hapus_laptop = $_POST['id_hapus_laptop'];
+		$sql_delete = "DELETE FROM `data_laptop` WHERE `id_laptop` = :id_hapus_laptop";
 		$stmt_delete = $db->prepare($sql_delete);
-		$stmt_delete->bindValue(':id_hapus_hp', $id_hapus_hp);
+		$stmt_delete->bindValue(':id_hapus_laptop', $id_hapus_laptop);
 		$stmt_delete->execute();
-		$query_reorder_id=mysqli_query($selectdb,"ALTER TABLE data_hp AUTO_INCREMENT = 1");
+		$query_reorder_id=mysqli_query($selectdb,"ALTER TABLE data_laptop AUTO_INCREMENT = 1");
 	}
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Sistem Pendukung Keputusan Pemilihan Smartphone</title>
+	<title>Sistem Pendukung Keputusan Pemilihan Laptop</title>
 	<!--Import Google Icon Font-->
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<!--Import materialize.css-->
@@ -139,7 +162,7 @@ include('koneksi.php');
 								<ul class="left" style="margin-left: -52px;">
 									<li><a href="index.php">HOME</a></li>
 									<li><a href="rekomendasi.php">REKOMENDASI</a></li>
-									<li><a class="active" href="daftar_hp.php">DAFTAR SMARTPHONE</a></li>
+									<li><a class="active" href="daftar_laptop.php">DAFTAR LAPTOP</a></li>
 									<li><a href="#about">TENTANG</a></li>
 								</ul>
 						</div>
@@ -149,7 +172,7 @@ include('koneksi.php');
 		</div>
 		<!-- Body Start -->
 
-		<!-- Daftar hp Start -->
+		<!-- Daftar laptop Start -->
 	<div style="background-color: #efefef">
 		<div class="container">
 		    <div class="section-card" style="padding: 40px 0px 20px 0px;">
@@ -158,39 +181,39 @@ include('koneksi.php');
 						<div class="row">
 						<div class="card">
 								<div class="card-content">
-									<center><h4 style="margin-bottom: 0px; margin-top: -8px;">Daftar Smartphone</h4></center>
+									<center><h4 style="margin-bottom: 0px; margin-top: -8px;">Daftar Laptop</h4></center>
 									<table id="table_id" class="hover dataTablesCustom" style="width:100%">
 											<thead style="border-top: 1px solid #d0d0d0;">
 												<tr>
 													<th><center>No </center></th>
-													<th><center>Nama HP</center></th>
-													<th><center>Harga HP</center></th>
-													<th><center>RAM HP</center></th>
-													<th><center>Memori HP</center></th>
-													<th><center>Processor HP</center></th>
-													<th><center>Kamera HP</center></th>
+													<th><center>Nama laptop</center></th>
+													<th><center>Harga laptop</center></th>
+													<th><center>RAM laptop</center></th>
+													<th><center>Memori laptop</center></th>
+													<th><center>cpu laptop</center></th>
+													<th><center>inches laptop</center></th>
 													<th><center>Hapus</center></th>
 												</tr>
 											</thead>
 											<tbody>
 												<?php
-												$query=mysqli_query($selectdb,"SELECT * FROM data_hp");
+												$query=mysqli_query($selectdb,"SELECT * FROM data_laptop");
 												$no=1;
 												while ($data=mysqli_fetch_array($query)) {
 												?>
 												<tr>
 													<td><center><?php echo $no; ?></center></td>
-													<td><center><?php echo $data['nama_hp'] ?></center></td>
-													<td><center><?php echo "Rp. ", $data['harga_hp'] ?></center></td>
-													<td><center><?php echo $data['ram_hp']," GB" ?></center></td>
-													<td><center><?php echo $data['memori_hp']," GB" ?></center></td>
-													<td><center><?php echo $data['processor_hp'] ?></center></td>
-													<td><center><?php echo $data['kamera_hp']," MP" ?></center></td>
+													<td><center><?php echo $data['brand'] , " ", $data['produk'] ?></center></td>
+													<td><center><?php echo "Rp. ", $data['harga'] ?></center></td>
+													<td><center><?php echo $data['ram']," GB" ?></center></td>
+													<td><center><?php echo $data['memory'] ?></center></td>
+													<td><center><?php echo $data['cpu'] ?></center></td>
+													<td><center><?php echo $data['inches']," Inches" ?></center></td>
 													<td>
 														<center>
 															<form method="POST">
-																<input type="hidden" name="id_hapus_hp" value="<?php echo $data['id_hp'] ?>">
-																<button type="submit" name="hapus_hp" style="height: 32px; width: 32px;" class="btn-floating btn-small waves-effect waves-light red"><i style="line-height: 32px;" class="material-icons">remove</i></button>
+																<input type="hidden" name="id_hapus_laptop" value="<?php echo $data['id'] ?>">
+																<button type="submit" name="hapus_laptop" style="height: 32px; width: 32px;" class="btn-floating btn-small waves-effect waves-light red"><i style="line-height: 32px;" class="material-icons">remove</i></button>
 															</form>
 														</center>
 													</td>
@@ -210,9 +233,9 @@ include('koneksi.php');
 	    	</div>
 		</div>
 	</div>
-	<!-- Daftar hp End -->
+	<!-- Daftar laptop End -->
 
-	<!-- Daftar hp Start -->
+	<!-- Daftar laptop Start -->
 	<div style="background-color: #efefef">
 		<div class="container">
 		    <div class="section-card" style="padding: 1px 20% 24px 20%;">
@@ -221,7 +244,7 @@ include('koneksi.php');
 						<div class="row">
 							<div class="card">
 								<div class="card-content" style="padding-top: 10px;">
-									<center><h5 style="margin-bottom: 10px;">Analisa Smartphone</h5></center>
+									<center><h5 style="margin-bottom: 10px;">Analisa Laptop</h5></center>
 									<table class="responsive-table">
 									
 											<thead style="border-top: 1px solid #d0d0d0;">
@@ -236,7 +259,7 @@ include('koneksi.php');
 											</thead>
 											<tbody>
 												<?php
-												$query=mysqli_query($selectdb,"SELECT * FROM data_hp");
+												$query=mysqli_query($selectdb,"SELECT * FROM data_laptop");
 												$no=1;
 												while ($data=mysqli_fetch_array($query)) {
 												?>
@@ -244,9 +267,9 @@ include('koneksi.php');
 													<td><center><?php echo "A",$no ?></center></td>
 													<td><center><?php echo $data['harga_angka'] ?></center></td>
 													<td><center><?php echo $data['ram_angka'] ?></center></td>
-													<td><center><?php echo $data['memori_angka'] ?></center></td>
-													<td><center><?php echo $data['processor_angka'] ?></center></td>
-													<td><center><?php echo $data['kamera_angka'] ?></center></td>
+													<td><center><?php echo $data['memory_angka'] ?></center></td>
+													<td><center><?php echo $data['cpu_angka'] ?></center></td>
+													<td><center><?php echo $data['inches_angka'] ?></center></td>
 												</tr>
 												<?php
 														$no++;}
@@ -261,7 +284,7 @@ include('koneksi.php');
 	    	</div>
 		</div>
 	</div>
-	<!-- Daftar hp End -->
+	<!-- Daftar laptop End -->
 
 	<!-- Modal Start -->
 	<div id="tambah" class="modal" style="width: 40%; height: 100%;">
@@ -269,36 +292,43 @@ include('koneksi.php');
 			<div class="col s6">
 					<div class="card-content">
 						<div class="row">
-							<center><h5 style="margin-top:-8px;">Masukan Smartphone</h5></center>
+							<center><h5 style="margin-top:-8px;">Masukan Laptop</h5></center>
 							<form method="POST" action="">
 								<div class = "row">
 									<div class="col s12">
 
 										<div class="col s6" style="margin-top: 10px;">
-											<b>Nama</b>
+											<b>Brand Produk</b>
 										</div>
 										<div class="col s6">
-											<input style="height: 2rem;" name="nama" type="text" required>
+											<input style="height: 2rem;" name="brands" type="text" required>
+										</div>
+
+										<div class="col s6" style="margin-top: 10px;">
+											<b>Nama Produk</b>
+										</div>
+										<div class="col s6">
+											<input style="height: 2rem;" name="produks" type="text" required>
 										</div>
 
 										<div class="col s6" style="margin-top: 10px;">
 											<b>Harga</b>
 										</div>
 										<div class="col s6">
-											<input style="height: 2rem;" name="harga" type="number" required>
+											<input style="height: 2rem;" name="hargas" type="number" required>
 										</div>
 										
 										<div class="col s6" style="margin-top: 10px;">
 										<b>RAM</b>
 										</div>
 										<div class="col s6">
-											<select style="display: block; margin-bottom: 4px;" required name="ram">
+											<select style="display: block; margin-bottom: 4px;" required name="rams">
 												<!-- <option value = "" disabled selected>Kriteria RAM</option>  -->
-												<option value = "1">1 Gb</option>
 												<option value = "2">2 Gb</option>
 												<option value = "3">3 Gb</option>
 												<option value = "4">4 Gb</option>
-												<option value = "6">6 Gb</option>
+												<option value = "8">8 Gb</option>
+												<option value = "9">>8 Gb</option>
 											</select>
 										</div>
 
@@ -306,42 +336,46 @@ include('koneksi.php');
 											<b>Memori</b>
 										</div>
 										<div class="col s6">
-											<select style="display: block; margin-bottom: 4px;" required name="memori">
+											<select style="display: block; margin-bottom: 4px;" required name="memorys">
 												<!-- <option value = "" disabled selected>Kriteria Penyimpanan</option> -->
-												<option value = "4">4 Gb</option>
-												<option value = "8">8 Gb</option>
-												<option value = "16">16 Gb</option>
-												<option value = "32">32 Gb</option>
-												<option value = "64">64 Gb</option>
+												<option value = "500 GB HDD">500 GB HDD</option>
+												<option value = "32-256 GB Flash Storage">32-256 GB Flash Storage</option>
+												<option value = "1 TB HDD">1 TB HDD</option>
+												<option value = "128-256 GB SSD">128-256 GB SSD</option>
+												<option value = "SSD + 1TB HDD">SSD + 1TB HDD</option>
 											</select>
 										</div>
 
 										<div class="col s6" style="margin-top: 10px;">
-											<b>Processor</b>
+											<b>cpu</b>
 										</div>
 										<div class="col s6">
-											<select style="display: block; margin-bottom: 4px;" required name="processor">
-												<option value = "Dualcore">Dualcore</option>
-												<option value = "Quadcore">Quadcore</option>
-												<option value = "Octacore">Octacore</option>
+											<select style="display: block; margin-bottom: 4px;" required name="cpus">
+												<option value = "AMD e-series">AMD e-series</option>
+												<option value = "AMD A-series">AMD A-series</option>
+												<option value = "Intel Core i3">Intel Core i3</option>
+												<option value = "Intel Core i5">Intel Core i5</option>
+												<option value = ">= Intel Core i7">>= Intel Core i7</option>
 											</select>
 										</div>
 
 										<div class="col s6" style="margin-top: 10px;">
-											<b>Kamera</b>
+											<b>inches</b>
 										</div>
 										<div class="col s6">
-											<select style="display: block; margin-bottom: 4px;" required name="kamera">
-												<!-- <option value = "" disabled selected>Kriteria Kamera</option> -->
-												<option value = "8">8 Mp</option>
-												<option value = "13">13 Mp</option>
-												<option value = "16">16 Mp</option>
+											<select style="display: block; margin-bottom: 4px;" required name="inchess">
+												<!-- <option value = "" disabled selected>Kriteria inches</option> -->
+												<option value = "11">11 Inches</option>
+												<option value = "13.3">13.3 Inches</option>
+												<option value = "14">14 Inches</option>
+												<option value = "15.5">15-16 Inches</option>
+												<option value = "18">>16 Inches</option>
 											</select>
 										</div>
 
 									</div>  
 								</div> 
-								<center><button name="tambah_hp" type="submit" class="waves-effect waves-light btn teal" style="margin-top: 0px;">Tambah</button></center>	
+								<center><button name="tambah_laptop" type="submit" class="waves-effect waves-light btn teal" style="margin-top: 0px;">Tambah</button></center>	
 							</form>
 						</div>
 					</div>
@@ -357,7 +391,7 @@ include('koneksi.php');
 	<div id="about" class="modal">
 		<div class="modal-content">
 			<h4>Tentang</h4>
-			<p>Sistem Pendukung Keputusan Pemilihan Smartphone ini menggunakan metode TOPSIS.</p>
+			<p>Sistem Pendukung Keputusan Pemilihan Laptop ini menggunakan metode TOPSIS.</p>
 		</div>
 		<div class="modal-footer">
 			<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Tutup</a>
@@ -370,7 +404,7 @@ include('koneksi.php');
     <!-- Footer Start -->
 	<div class="footer-copyright" style="padding: 0px 0px; background-color: white">
       <div class="container">
-        <p align="center" style="color: #999">&copy; Sistem Pendukung Keputusan Pemilihan Smartphone 2022.</p>
+        <p align="center" style="color: #999">&copy; Sistem Pendukung Keputusan Pemilihan Laptop 2022.</p>
       </div>
     </div>
     <!-- Footer End -->

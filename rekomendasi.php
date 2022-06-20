@@ -31,7 +31,7 @@
 								<ul class="left" style="margin-left: -52px;">
 									<li><a href="index.php">HOME</a></li>
 									<li><a class="active" href="rekomendasi.php">REKOMENDASI</a></li>
-                                    <li><a href="daftar_hp.php">DAFTAR SMARTPHONE</a></li>
+                                    <li><a href="daftar_laptop.php">DAFTAR SMARTPHONE</a></li>
                                     <li><a href="#about">TENTANG</a></li>
 								</ul>
 						</div>
