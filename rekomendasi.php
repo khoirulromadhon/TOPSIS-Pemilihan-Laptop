@@ -106,7 +106,7 @@
                                                                 <b>CPU</b>
                                                             </div>
                                                             <div class="col s6">
-                                                                <select required name="processor">
+                                                                <select required name="cpu">
                                                                     <option value = "" disabled selected>Kriteria CPU</option>
                                                                     <option value = "1">AMD e-series</option>
                                                                     <option value = "2">AMD A-series</option>
@@ -120,7 +120,7 @@
                                                                 <b>Dimensi Laptop</b>
                                                             </div>
                                                             <div class="col s6">
-                                                                <select required name="inchess">
+                                                                <select required name="inches">
                                                                     <option value = "" disabled selected>Dimensi Laptop</option>
                                                                     <option value = "1">11 Inches</option>
                                                                     <option value = "2">13.3 Inches</option>
