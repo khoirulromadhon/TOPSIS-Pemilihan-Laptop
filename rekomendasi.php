@@ -94,11 +94,11 @@
                                                             <div class="col s6">
                                                                 <select required name="memori">
                                                                     <option value = "" disabled selected>Kriteria Penyimpanan</option>
-                                                                    <option value = "1">256 Gb (SSD)</option>
-                                                                    <option value = "2">512 Gb (SSD)</option>
-                                                                    <option value = "3">1 Tb (HDD)</option>
-                                                                    <option value = "4">256 Gb (SSD) + 500 Gb (HDD)</option>
-                                                                    <option value = "5">> 128 Gb (SSD) + 1Tb (HDD)</option>
+                                                                    <option value = "1">500 GB HDD</option>
+                                                                    <option value = "2">32-256 GB Flash Storage</option>
+                                                                    <option value = "3">1 TB HDD</option>
+                                                                    <option value = "4">128-256 GB SSD</option>
+                                                                    <option value = "5">SSD + 1TB HDD</option>
                                                                 </select>
                                                             </div>
 
@@ -108,9 +108,11 @@
                                                             <div class="col s6">
                                                                 <select required name="processor">
                                                                     <option value = "" disabled selected>Kriteria CPU</option>
-                                                                    <option value = "1">Intel Core i3</option>
-                                                                    <option value = "3">Intel Core i5</option>
-                                                                    <option value = "5">AMD A9</option>
+                                                                    <option value = "1">AMD e-series</option>
+                                                                    <option value = "2">AMD A-series</option>
+                                                                    <option value = "3">Intel Core i3</option>
+                                                                    <option value = "4">Intel Core i5</option>
+                                                                    <option value = "5">>= Intel Core i7</option>
                                                                 </select>
                                                             </div>
 
@@ -118,11 +120,13 @@
                                                                 <b>Dimensi Laptop</b>
                                                             </div>
                                                             <div class="col s6">
-                                                                <select required name="kamera">
+                                                                <select required name="inchess">
                                                                     <option value = "" disabled selected>Dimensi Laptop</option>
-                                                                    <option value = "1">11 - 13 inch</option>
-                                                                    <option value = "3">14 - 17 inch</option>
-                                                                    <option value = "5">>17 inch</option>
+                                                                    <option value = "1">11 Inches</option>
+                                                                    <option value = "2">13.3 Inches</option>
+                                                                    <option value = "3">14 Inches</option>
+                                                                    <option value = "4">15-16 Inches</option>
+                                                                    <option value = "5">>16 Inches</option>
                                                                 </select>
                                                             </div>
                                                             
