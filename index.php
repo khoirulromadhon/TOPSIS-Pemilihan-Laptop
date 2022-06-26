@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -52,16 +54,16 @@
 		<div id="index-banner" class="parallax-container">
 			<div class="section no-pad-bot">
 				<div class="container">
-					<h1 class="header jarak center white-text" style="font-size: 40px">SISTEM PENDUKUNG KEPUTUSAN MENGGUNAKAN METODE TOPSIS</h1>
+					<h3 class="header jarak center black-text" style="font-size: 60px">SISTEM PENDUKUNG KEPUTUSAN MENGGUNAKAN METODE TOPSIS</h3>
 					<div class="row center">
-						<h5 class="header jarak-button col s12 light" style="margin-bottom: 0px; font-size: 26px">PEMILIHAN SMARTPHONE</h5>
+						<h5 class="header jarak-button col s12 black" style="margin-bottom: 0px; font-size: 30px">PEMILIHAN LAPTOP</h5>
 					</div>
 					<div class="row center" \>
 								<a href="rekomendasi.php" id="download-button" class="waves-effect waves-light btn-large" style="margin-top: 40px">Pilih Rekomendasi</a>
 							</div>
 				</div>
 			</div>
-			<div class="parallax"><img src="assets/image/pixel.jpg" alt="Laptop"></div>
+			<div class="parallax"><img src="assets/image/gambarlaptop2.jpg" alt="Laptop"></div>
 		</div>
 		<!-- Jumbotron End -->
 
@@ -72,11 +74,11 @@
 		    	<div class="row">
 		    		<div class="col s6">
 			    		<center><h5 class="header" style="margin-left: 0px; margin-bottom: 0px; margin-top: 25px; color: #635c73">INFO SISTEM</h5></center><br>
-			    		<p style="text-align: justify; padding-right: 16px;">Sistem Pendukung Keputusan Pemilihan Smartphone ini menggunakan metode TOPSIS.</p>
+			    		<p style="text-align: justify; padding-right: 16px;">Sistem Pendukung Keputusan Pemilihan Laptop ini menggunakan metode TOPSIS.</p>
 					</div>
 			    	<div class="col s6">
 			    		<center><h5 class="header" style="margin-left: 0px; margin-bottom: 0px; margin-top: 25px; color: #635c73">INFO METODE</h5></center><br>
-						<p style="text-align: justify; padding-left: 16px;">Metode yang digunakan adalah metode TOPSIS. Metode TOPSIS adalah salah satu metode penyelesaian pada sistem pendukung keputusan. Metode ini mengevaluasi beberapa alternatif terhadap sekumpulan atribuat atau kriteria, dimana setiap atribut saling tidak bergantung satu dengan yang lainnya.</p>
+						<p style="text-align: justify; padding-left: 16px;">Metode yang digunakan adalah metode TOPSIS. Metode TOPSIS adalah salah satu metode penyelesaian pada sistem pendukung keputusan. Metode ini mengevaluasi beberapa alternatif terhadap sekumpulan atribut atau kriteria, dimana setiap atribut saling tidak bergantung satu dengan yang lainnya.</p>
 					</div>
 		    	</div>
 	    	</div>
@@ -99,7 +101,7 @@
     <!-- Footer Start -->
 	<div class="footer-copyright" style="padding: 0px 0px">
       <div class="container">
-        <p align="center" style="color: #999">&copy; Sistem Pendukung Keputusan Pemilihan Smartphone 2022.</p>
+        <p align="center" style="color: #999">&copy; Sistem Pendukung Keputusan Pemilihan Laptop 2022.</p>
       </div>
     </div>
     <!-- Footer End -->
