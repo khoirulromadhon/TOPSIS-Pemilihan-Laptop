@@ -90,7 +90,7 @@ function JarakIplus($aplus,$bob){
 <<<<<<< HEAD
 						<li><a href="daftar_laptop.php">DAFTAR LAPTOP</a></li>
 =======
-						<li><a href="daftar_hp.php">DAFTAR LAPTOP</a></li>
+						<li><a href="daftar_laptop.php">DAFTAR LAPTOP</a></li>
 >>>>>>> 1a475e5f3cce3a95173627389e2a2cfcf6322a0a
 						<li><a class="active" href="hasil.php">PERHITUNGAN</a></li>
 						<li><a href="#about">TENTANG</a></li>
